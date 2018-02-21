@@ -7,11 +7,16 @@
  *
  * @see <a href="https://cs125.cs.illinois.edu/lab/8/">Lab 8 Description</a>
  */
-public class Bank {
+final class Bank {
+    /**
+     * @param bankName bankname
+     */
+    private String bankName;
 
-    public String bankName;
-
-    public Bank() {
+    /**
+     *
+     */
+    private Bank() {
         bankName = "Illini Bank";
     }
 
@@ -25,10 +30,17 @@ public class Bank {
      * @param amount to withdraw (double)
      * @return boolean
      */
-    public boolean withdrawMoney(final BankAccount bankAccount, final double amount) {
+    private boolean withdrawMoney(final BankAccount bankAccount, final double amount) {
         /*
          * Implement this function
          */
+        if (amount > bankAccount.accountBalance) {
+            return false;
+        } else {
+            bankAccount.accountBalance = bankAccount.accountBalance - amount;
+            System.out.println(bankAccount.accountBalance);
+            return true;
+        }
     }
 
     /**
@@ -45,6 +57,9 @@ public class Bank {
         /*
          * Implement this function
          */
+        bankAccount.accountBalance = bankAccount.accountBalance + amount;
+        System.out.println(bankAccount.accountBalance);
+        return true;
     }
 
     /**
@@ -64,6 +79,15 @@ public class Bank {
         /*
          * Implement this function
          */
+        if (amount < source.accountBalance){
+            source.accountBalance = source.accountBalance - amount;
+            destination.accountBalance = destination.accountBalance + amount;
+            System.out.println(source.accountBalance);
+            System.out.println(destination.accountBalance);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -77,9 +101,14 @@ public class Bank {
         /*
          * Implement this function
          */
+        bankAccount.ownerName = name;
+        System.out.println(bankAccount.ownerName);
     }
 
-    public static int totalAccounts = 0;
+    /**
+     *
+     */
+   private static int totalAccounts = 0;
     /**
      * Uses static variable to get number of bank accounts opened.
      *
@@ -89,6 +118,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        return totalAccounts;
     }
 
     /**

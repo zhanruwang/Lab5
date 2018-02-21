@@ -9,9 +9,6 @@ import java.util.Random;
  */
 public class BankAccount {
 
-    /*
-     * You may want to use this to distinguish between different kinds of accounts.
-     */
     public enum BankAccountType {
         CHECKINGS,
         SAVINGS,
@@ -19,13 +16,36 @@ public class BankAccount {
         WORKPLACE
     }
 
+    /**
+     *
+     */
     private int accountNumber;
-    public BankAccountType accountType;
-    private double accountBalance;
-    private String ownerName;
-    public double interestRate;
+    /**
+     *
+     */
+    private BankAccountType accountType;
+    /**
+     *
+     */
+    public double accountBalance;
+    /**
+     *
+     */
+    public String ownerName;
+    /**
+     *
+     */
+    private double interestRate;
+    /**
+     *
+     */
     private double interestEarned;
 
+    /**
+     *
+     * @param name name
+     * @param accountCategory accountcategory
+     */
     public BankAccount(final String name, final BankAccountType accountCategory) {
         /*
          * Implement this function
